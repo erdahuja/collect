@@ -1,0 +1,1 @@
+This doesn't work as we do not have app approval from google to use full scope inside sheets

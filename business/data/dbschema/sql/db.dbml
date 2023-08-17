@@ -1,0 +1,101 @@
+Table "users" {
+  "user_id" SERIAL [pk, increment]
+  "name" VARCHAR(100) [not null]
+  "email" VARCHAR(100) [unique, not null]
+  "password" VARCHAR(100) [not null]
+  "created_at" timestamp [default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "permissions" {
+  "permission_id" SERIAL [pk, increment]
+  "name" VARCHAR(50) [not null]
+  "description" TEXT
+  "created_at" timestamp [default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "user_permissions" {
+  "user_id" INTEGER [not null]
+  "permission_id" INTEGER [not null]
+
+Indexes {
+  (user_id, permission_id) [pk]
+}
+}
+
+Table "forms" {
+  "form_id" SERIAL [pk, increment]
+  "form_title" TEXT [not null]
+  "form_description" TEXT
+  "created_at" timestamp [default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "permission_forms" {
+  "permission_id" INTEGER [not null]
+  "form_id" INTEGER [not null]
+
+Indexes {
+  (permission_id, form_id) [pk]
+}
+}
+
+Table "questions" {
+  "question_id" SERIAL [pk, increment]
+  "form_id" INTEGER
+  "question_type" TEXT [not null]
+  "question_text" TEXT [not null]
+  "created_at" timestamp [default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "options" {
+  "option_id" SERIAL [pk, increment]
+  "question_id" INTEGER
+  "option_text" TEXT [not null]
+  "created_at" timestamp [default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "responses" {
+  "response_id" SERIAL [pk, increment]
+  "form_id" INTEGER
+  "respondent_id" TEXT [not null]
+  "created_at" timestamp [default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [default: `CURRENT_TIMESTAMP`]
+
+Indexes {
+  (form_id, respondent_id) [name: "form_respondent_idx"]
+}
+}
+
+Table "answers" {
+  "answer_id" SERIAL [pk, increment]
+  "question_id" INTEGER
+  "response_id" INTEGER
+  "answer_text" TEXT
+  "answer_option_id" INTEGER
+  "created_at" timestamp [default: `CURRENT_TIMESTAMP`]
+  "updated_at" timestamp [default: `CURRENT_TIMESTAMP`]
+}
+
+Ref:"users"."user_id" < "user_permissions"."user_id" [delete: cascade]
+
+Ref:"permissions"."permission_id" < "user_permissions"."permission_id" [delete: cascade]
+
+Ref:"permissions"."permission_id" < "permission_forms"."permission_id" [delete: cascade]
+
+Ref:"forms"."form_id" < "permission_forms"."form_id" [delete: cascade]
+
+Ref:"forms"."form_id" < "questions"."form_id" [delete: cascade]
+
+Ref:"questions"."question_id" < "options"."question_id" [delete: cascade]
+
+Ref:"forms"."form_id" < "responses"."form_id" [delete: cascade]
+
+Ref:"questions"."question_id" < "answers"."question_id" [delete: cascade]
+
+Ref:"responses"."response_id" < "answers"."response_id" [delete: cascade]
+
+Ref:"options"."option_id" < "answers"."answer_option_id"

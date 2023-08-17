@@ -1,0 +1,6 @@
+{
+    "DOMAIN_KAFKA_BROKER": "localhost:9092",
+    "DOMAIN_KAFKA_TOPIC": "prod-collect-domain-events",
+    "SHEETS_CONSUMER_GROUP": "prod-sheets-consumer-group",
+    "INTERNAL_TOKEN": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb2xsZWN0Iiwic3ViIjoiMSIsImV4cCI6MTcyMDQwMzYzNywiaWF0IjoxNjg0NDAzNjM3LCJqdGkiOiJpbnRlcm5hbCIsInJvbGVzIjpbIkFETUlOIiwiVVNFUiIsIkNPTExFQ1RPUiJdfQ.SzoRU5GA3DQhI1EX797G5h6WfNUFDgrDCySomb46CII"
+}

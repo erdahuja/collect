@@ -1,0 +1,9 @@
+DELETE FROM responses;
+DELETE FROM answers;
+DELETE FROM options;
+DELETE FROM questions;
+DELETE FROM forms;
+DELETE FROM permission_forms;
+DELETE FROM user_permissions;
+DELETE FROM permissions;
+DELETE FROM users;

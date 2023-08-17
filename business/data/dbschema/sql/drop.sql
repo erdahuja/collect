@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS darwin_migrations;
+DROP TABLE IF EXISTS user_permissions;
+DROP TABLE IF EXISTS permission_forms;
+DROP TABLE IF EXISTS answers;
+DROP TABLE IF EXISTS options;
+DROP TABLE IF EXISTS questions;
+DROP TABLE IF EXISTS responses;
+DROP TABLE IF EXISTS forms;
+DROP TABLE IF EXISTS permissions;
+DROP TABLE IF EXISTS users;

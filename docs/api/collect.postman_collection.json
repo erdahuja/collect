@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "37605187-5b1a-4cdf-86b7-c82e7878094c",
+		"name": "collect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26793134",
+		"_collection_link": "https://www.postman.com/telecoms-pilot-60241332/workspace/public/collection/26793134-37605187-5b1a-4cdf-86b7-c82e7878094c?action=share&creator=26793134&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "1. users",
+			"item": [
+				{
+					"name": "create user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZXJnZWR1cCIsInN1YiI6IjEiLCJleHAiOjE2ODA4ODY2MjEsImlhdCI6MTY4MDg4MzAyMSwicm9sZXMiOlsiQURNSU4iLCJVU0VSIl19.wqUWPldniYveFk8hdjETi99fAxHnrYdUGnOMt0yj3uw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"rishabh\",\n    \"email\": \"rishabh@example.com\",\n    \"roles\": [\n        \"USER\"\n    ],\n    \"password\": \"rishabh\",\n    \"passwordConfirm\": \"rishabh\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin@example.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/v1/users/token/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users",
+								"token",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZXJnZWR1cCIsInN1YiI6IjEiLCJleHAiOjE2ODA4OTEwNDAsImlhdCI6MTY4MDg4NzQ0MCwicm9sZXMiOlsiQURNSU4iLCJVU0VSIl19.zRptzPqhHKr0gXx8Er0KP7HKXzgqI2CtWLAEb6iEBro",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZXJnZWR1cCIsInN1YiI6IjEiLCJleHAiOjE2ODA4NjIyMjUsImlhdCI6MTY4MDg1ODYyNSwicm9sZXMiOlsiQURNSU4iLCJVU0VSIl19.PV4JRkWmkQ-z3lyWL2LHV40Bglykokf3xyBGtk2hKs4",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2. forms",
+			"item": [
+				{
+					"name": "Get form",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "add form",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb2xsZWN0Iiwic3ViIjoiMSIsImV4cCI6MTY4NDM4ODk4NiwiaWF0IjoxNjg0Mzg1Mzg2LCJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXX0.F4IWdxxZSwsoYmMJ9PPHpJgkNOtG3ia4Nk-2K4at660",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n          \"form_title\": \"Test survey\",\n        \"form_description\": \"Did you do a good job deepak?\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/forms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"forms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get questions",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3. questions",
+			"item": [
+				{
+					"name": "Create questions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtZXJnZWR1cCIsInN1YiI6IjEiLCJleHAiOjE2ODA4NjM4MTAsImlhdCI6MTY4MDg2MDIxMCwicm9sZXMiOlsiQURNSU4iLCJVU0VSIl19.AGRscERM3QHYJRAsOZDCgg5Ayw8UGLtE_00ZvlJIsIc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test product\",\n    \"quantity\": 10,\n    \"cost\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4. response",
+			"item": [
+				{
+					"name": "Create Response",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb2xsZWN0Iiwic3ViIjoiMCIsImV4cCI6MTY4NDMwNDU0OCwiaWF0IjoxNjg0Mjk4NTQ4LCJyb2xlcyI6WyJVU0VSIiwiQ09MTEVDVE9SIl19.wkn8HVOd-wHk7M0m5Ffbb3mc1i85IZHId71aYZNx94k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"form_id\": 2,\n  \"respondent_id\": \"deepak\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/response",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"response"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get responses",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5. answer",
+			"item": [
+				{
+					"name": "Create answer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb2xsZWN0Iiwic3ViIjoiMCIsImV4cCI6MTY4NDMwNDU0OCwiaWF0IjoxNjg0Mjk4NTQ4LCJyb2xlcyI6WyJVU0VSIiwiQ09MTEVDVE9SIl19.wkn8HVOd-wHk7M0m5Ffbb3mc1i85IZHId71aYZNx94k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"question_id\": 1,\n  \"answer_text\": \"This is the answer text.\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/v1/response/33/answer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"response",
+								"33",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "admin mail",
+			"value": "admin@example.com"
+		},
+		{
+			"key": "admin password",
+			"value": "admin"
+		},
+		{
+			"key": "deepak mail",
+			"value": "deepak@example.com"
+		},
+		{
+			"key": "deepak password",
+			"value": "deepak"
+		}
+	]
+}
